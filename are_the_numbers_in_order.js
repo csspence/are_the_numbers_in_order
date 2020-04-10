@@ -19,13 +19,18 @@ isAscOrder(new int[]{9,8,7,6,5,4,3,2,1}) == false // numbers are in DESCENDING o
 N.B. If your solution passes all fixed tests but fails at the random tests, make sure you aren't mutating the input array.
 */
 
-function inAscOrder(arr) {
-  // Code your algorithm here :)
-  
-  // Hmmm ... maybe we should try our luck out ...
-  // if (Math.random() > 0.5) {
-  //  return true;
-  // } else {
-  //  return false;
-  // }
+const inAscOrder = (arr) => {
+  let newArr = [];
+  for(let h = 0; h < arr.length; h++) {
+    newArr.push(arr[h]);
+  }
+  newArr = newArr.sort((a, b) => a - b);
+
+  for(let i = 0; i < arr.length; i++) {
+    if(newArr[i] !== arr[i]) {
+      return false;
+    }
+  }
+
+  return true;
 }
